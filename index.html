@@ -7,9 +7,10 @@
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
   <title>Le mie ricette</title>
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+  
+  <!-- Firebase SDK Compatibile -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 </head>
 <body>
   <main>
@@ -27,7 +28,7 @@
         <button id="select">Seleziona tutte</button>
         <button id="none">Deseleziona</button>
         <button id="new">＋ Nuova ricetta</button>
-        <span id="sync-status" class="sync-badge">☁️ In linea</span>
+        <span id="sync-status" class="sync-badge">⏳ Connessione...</span>
         <span id="total"></span>
       </p>
       <div id="recipes"></div>
@@ -53,10 +54,9 @@
       </form>
     </details>
 
-    <footer>Sincronizzazione Cloud automatica attiva.</footer>
+    <footer>Sincronizzazione Cloud attiva.</footer>
   </main>
 
   <script src="app.js"></script>
-  <script>navigator.serviceWorker?.register('./service-worker.js')</script>
 </body>
 </html>
