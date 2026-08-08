@@ -1,9 +1,49 @@
-const BASE={"1": [["Skyr", 300, "g"], ["Cereali", 80, "g"], ["Banana", 1, "pz"], ["Burro d'arachidi e toast integrale", 20, "g"], ["Latte", 250, "ml"]], "2": [["Uova", 3, "pz"], ["Gallette mais", 80, "g"], ["Avocado", 0.5, "pz"], ["Latte", 250, "ml"], ["Banana", 1, "pz"]], "3": [["Skyr", 300, "g"], ["Cereali", 80, "g"], ["Mirtilli", 100, "g"], ["Banana", 1, "pz"], ["Burro d'arachidi e toast integrale", 25, "g"], ["Latte", 250, "ml"]], "4": [["Skyr", 300, "g"], ["Cereali", 70, "g"], ["Banana", 1, "pz"], ["Burro d'arachidi e toast integrale", 20, "g"], ["Latte", 250, "ml"], ["Biscotti", 30, "g"]], "5": [["Uova", 3, "pz"], ["Gallette mais", 70, "g"], ["Avocado", 0.5, "pz"], ["Skyr", 300, "g"], ["Banana", 1, "pz"], ["Olio EVO", 10, "g"]], "6": [["Pasta", 120, "g"], ["Pollo", 180, "g"], ["Peperone", 1, "pz"], ["Olio EVO", 10, "g"], ["Insalata", 1, "pz"]], "7": [["Pasta", 120, "g"], ["Tonno sgocciolato", 160, "g"], ["Pomodoro", 1, "pz"], ["Avocado", 0.5, "pz"], ["Verdure", 1, "pz"]], "8": [["Pasta", 120, "g"], ["Carne macinata magra", 180, "g"], ["Peperone", 1, "pz"], ["Pomodoro", 1, "pz"]], "9": [["Pasta", 120, "g"], ["Pollo", 180, "g"], ["Broccoli", 1, "pz"], ["Pomodoro", 1, "pz"], ["Olio EVO", 10, "g"]], "10": [["Pasta", 120, "g"], ["Tonno", 160, "g"], ["Ceci", 150, "g"], ["Pomodoro", 1, "pz"], ["Insalata", 1, "pz"]], "11": [["Carne macinata magra", 180, "g"], ["Patate dolci", 350, "g"], ["Fagioli", 150, "g"], ["Pomodoro", 1, "pz"], ["Insalata", 1, "pz"]], "12": [["Pollo", 200, "g"], ["Patate dolci", 350, "g"], ["Ceci", 150, "g"], ["Insalata", 1, "pz"], ["Verdure", 1, "pz"]], "13": [["Pollo", 200, "g"], ["Rösti", 300, "g"], ["Insalata", 1, "pz"], ["Uova", 2, "pz"]], "14": [["Carne macinata magra", 180, "g"], ["Patate dolci", 300, "g"], ["Fagioli", 150, "g"], ["Avocado", 1, "pz"]], "15": [["Pollo", 200, "g"], ["Rösti", 300, "g"], ["Verdure", 1, "pz"], ["Fagioli", 150, "g"], ["Insalata", 1, "pz"]], "16": [["Skyr", 300, "g"], ["Avena", 80, "g"], ["Banana", 1, "pz"], ["Burro d'arachidi", 20, "g"], ["Latte", 150, "ml"]], "17": [["Uova", 3, "pz"], ["Pane integrale", 80, "g"], ["Skyr", 150, "g"], ["Frutti di bosco", 1, "pz"], ["Banana", 1, "pz"]], "18": [["Skyr", 300, "g"], ["Muesli/cereali", 80, "g"], ["Banana", 1, "pz"], ["Burro d'arachidi", 20, "g"], ["Latte", 250, "ml"]], "19": [["Avena", 80, "g"], ["Latte", 300, "ml"], ["Whey protein", 30, "g"], ["Banana", 1, "pz"], ["Burro d'arachidi", 20, "g"]], "20": [["Uova", 3, "pz"], ["Pane", 70, "g"], ["Avocado", 0.5, "pz"], ["Skyr", 250, "g"], ["Frutti di bosco", 1, "pz"]], "21": [["Pasta", 120, "g"], ["Pollo", 180, "g"], ["Pomodoro", 1, "pz"], ["Zucchine", 1, "pz"], ["Olio EVO", 10, "g"]], "22": [["Riso", 120, "g"], ["Tacchino", 180, "g"], ["Peperone", 1, "pz"], ["Olio EVO", 10, "g"]], "23": [["Pasta", 120, "g"], ["Tonno", 160, "g"], ["Pomodoro", 1, "pz"], ["Olive", 1, "pz"], ["Insalata", 1, "pz"]], "24": [["Cous cous", 120, "g"], ["Pollo", 180, "g"], ["Ceci", 1, "pz"], ["Peperone", 1, "pz"], ["Pomodoro", 1, "pz"]], "25": [["Macinata per hamburger", 180, "g"], ["Panini piccoli", 2, "pz"], ["Pomodoro", 1, "pz"], ["Insalata", 1, "pz"], ["Patate al forno", 250, "g"]], "26": [["Macinata", 180, "g"], ["Patate", 350, "g"], ["Broccoli", 1, "pz"], ["Avocado", 0.5, "pz"]], "27": [["Salmone magro", 180, "g"], ["Patate dolci", 350, "g"], ["Insalata", 1, "pz"], ["Pomodoro", 1, "pz"]], "28": [["Pollo", 200, "g"], ["Rösti", 300, "g"], ["Verdure", 1, "pz"], ["Uova", 2, "pz"]], "29": [["Macinata", 180, "g"], ["Patate", 300, "g"], ["Verdure", 1, "pz"], ["Avocado", 0.5, "pz"]], "30": [["Manzo magro", 180, "g"], ["Patate dolci", 300, "g"], ["Fagioli", 150, "g"], ["Verdure", 1, "pz"], ["Patate al forno", 250, "g"]]},KEY='ricette-complete-v4',BACKUP_FILE='ricette_backup.json';
+npm install firebase
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCM2FL1AnoT9uZ_SwSWOvSyZzYbvVeqif8",
+  authDomain: "backup-lista-spesa.firebaseapp.com",
+  projectId: "backup-lista-spesa",
+  storageBucket: "backup-lista-spesa.firebasestorage.app",
+  messagingSenderId: "438493716093",
+  appId: "1:438493716093:web:c5b83f8a7e3cc84e871b14",
+  measurementId: "G-NKZRKYCFDK"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+const firebaseConfig = {
+  apiKey: "INSERISCI_TUA_API_KEY",
+  authDomain: "INSERISCI_TUO_AUTH_DOMAIN",
+  databaseURL: "INSERISCI_TUA_DATABASE_URL",
+  projectId: "INSERISCI_TUO_PROJECT_ID",
+  storageBucket: "INSERISCI_TUO_STORAGE_BUCKET",
+  messagingSenderId: "INSERISCI_TUO_MESSAGING_SENDER_ID",
+  appId: "INSERISCI_TUA_APP_ID"
+};
+
+// Inizializza Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const recipesRef = db.ref('ricette_data');
+
+const BASE={"1": [["Skyr", 300, "g"], ["Cereali", 80, "g"], ["Banana", 1, "pz"], ["Burro d'arachidi e toast integrale", 20, "g"], ["Latte", 250, "ml"]], "2": [["Uova", 3, "pz"], ["Gallette mais", 80, "g"], ["Avocado", 0.5, "pz"], ["Latte", 250, "ml"], ["Banana", 1, "pz"]], "3": [["Skyr", 300, "g"], ["Cereali", 80, "g"], ["Mirtilli", 100, "g"], ["Banana", 1, "pz"], ["Burro d'arachidi e toast integrale", 25, "g"], ["Latte", 250, "ml"]], "4": [["Skyr", 300, "g"], ["Cereali", 70, "g"], ["Banana", 1, "pz"], ["Burro d'arachidi e toast integrale", 20, "g"], ["Latte", 250, "ml"], ["Biscotti", 30, "g"]], "5": [["Uova", 3, "pz"], ["Gallette mais", 70, "g"], ["Avocado", 0.5, "pz"], ["Skyr", 300, "g"], ["Banana", 1, "pz"], ["Olio EVO", 10, "g"]], "6": [["Pasta", 120, "g"], ["Pollo", 180, "g"], ["Peperone", 1, "pz"], ["Olio EVO", 10, "g"], ["Insalata", 1, "pz"]], "7": [["Pasta", 120, "g"], ["Tonno sgocciolato", 160, "g"], ["Pomodoro", 1, "pz"], ["Avocado", 0.5, "pz"], ["Verdure", 1, "pz"]], "8": [["Pasta", 120, "g"], ["Carne macinata magra", 180, "g"], ["Peperone", 1, "pz"], ["Pomodoro", 1, "pz"]], "9": [["Pasta", 120, "g"], ["Pollo", 180, "g"], ["Broccoli", 1, "pz"], ["Pomodoro", 1, "pz"], ["Olio EVO", 10, "g"]], "10": [["Pasta", 120, "g"], ["Tonno", 160, "g"], ["Ceci", 150, "g"], ["Pomodoro", 1, "pz"], ["Insalata", 1, "pz"]], "11": [["Carne macinata magra", 180, "g"], ["Patate dolci", 350, "g"], ["Fagioli", 150, "g"], ["Pomodoro", 1, "pz"], ["Insalata", 1, "pz"]], "12": [["Pollo", 200, "g"], ["Patate dolci", 350, "g"], ["Ceci", 150, "g"], ["Insalata", 1, "pz"], ["Verdure", 1, "pz"]], "13": [["Pollo", 200, "g"], ["Rösti", 300, "g"], ["Insalata", 1, "pz"], ["Uova", 2, "pz"]], "14": [["Carne macinata magra", 180, "g"], ["Patate dolci", 300, "g"], ["Fagioli", 150, "g"], ["Avocado", 1, "pz"]], "15": [["Pollo", 200, "g"], ["Rösti", 300, "g"], ["Verdure", 1, "pz"], ["Fagioli", 150, "g"], ["Insalata", 1, "pz"]], "16": [["Skyr", 300, "g"], ["Avena", 80, "g"], ["Banana", 1, "pz"], ["Burro d'arachidi", 20, "g"], ["Latte", 150, "ml"]], "17": [["Uova", 3, "pz"], ["Pane integrale", 80, "g"], ["Skyr", 150, "g"], ["Frutti di bosco", 1, "pz"], ["Banana", 1, "pz"]], "18": [["Skyr", 300, "g"], ["Muesli/cereali", 80, "g"], ["Banana", 1, "pz"], ["Burro d'arachidi", 20, "g"], ["Latte", 250, "ml"]], "19": [["Avena", 80, "g"], ["Latte", 300, "ml"], ["Whey protein", 30, "g"], ["Banana", 1, "pz"], ["Burro d'arachidi", 20, "g"]], "20": [["Uova", 3, "pz"], ["Pane", 70, "g"], ["Avocado", 0.5, "pz"], ["Skyr", 250, "g"], ["Frutti di bosco", 1, "pz"]], "21": [["Pasta", 120, "g"], ["Pollo", 180, "g"], ["Pomodoro", 1, "pz"], ["Zucchine", 1, "pz"], ["Olio EVO", 10, "g"]], "22": [["Riso", 120, "g"], ["Tacchino", 180, "g"], ["Peperone", 1, "pz"], ["Olio EVO", 10, "g"]], "23": [["Pasta", 120, "g"], ["Tonno", 160, "g"], ["Pomodoro", 1, "pz"], ["Olive", 1, "pz"], ["Insalata", 1, "pz"]], "24": [["Cous cous", 120, "g"], ["Pollo", 180, "g"], ["Ceci", 1, "pz"], ["Peperone", 1, "pz"], ["Pomodoro", 1, "pz"]], "25": [["Macinata per hamburger", 180, "g"], ["Panini piccoli", 2, "pz"], ["Pomodoro", 1, "pz"], ["Insalata", 1, "pz"], ["Patate al forno", 250, "g"]], "26": [["Macinata", 180, "g"], ["Patate", 350, "g"], ["Broccoli", 1, "pz"], ["Avocado", 0.5, "pz"]], "27": [["Salmone magro", 180, "g"], ["Patate dolci", 350, "g"], ["Insalata", 1, "pz"], ["Pomodoro", 1, "pz"]], "28": [["Pollo", 200, "g"], ["Rösti", 300, "g"], ["Verdure", 1, "pz"], ["Uova", 2, "pz"]], "29": [["Macinata", 180, "g"], ["Patate", 300, "g"], ["Verdure", 1, "pz"], ["Avocado", 0.5, "pz"]], "30": [["Manzo magro", 180, "g"], ["Patate dolci", 300, "g"], ["Fagioli", 150, "g"], ["Verdure", 1, "pz"], ["Patate al forno", 250, "g"]]}, KEY='ricette-complete-v4';
 
 const $=x=>document.getElementById(x);
 let edits={},custom={};
 
-function load(){
+// Caricamento locale offline
+function loadLocal(){
   try{
     let x=JSON.parse(localStorage.getItem(KEY)||'{}');
     edits=x.edits||{};
@@ -11,9 +51,31 @@ function load(){
   }catch(e){}
 }
 
+// Salvataggio sia su memoria locale che su Firebase
 function save(){
   localStorage.setItem(KEY,JSON.stringify({edits,custom}));
+  recipesRef.set({edits,custom}).catch(err => console.error("Errore salvataggio Cloud:", err));
 }
+
+// Sincronizzazione in Tempo Reale con Firebase
+recipesRef.on('value', (snapshot) => {
+  const val = snapshot.val();
+  const statusEl = $('sync-status');
+  if (val) {
+    edits = val.edits || {};
+    custom = val.custom || {};
+    localStorage.setItem(KEY, JSON.stringify({edits,custom}));
+    render();
+    if(statusEl) statusEl.textContent = '☁️ Sincronizzato';
+  } else {
+    // Se il database cloud è vuoto al primo avvio, salviamo le ricette locali
+    save();
+  }
+}, (error) => {
+  console.warn("Offline/Errore connessione Cloud:", error);
+  const statusEl = $('sync-status');
+  if(statusEl) statusEl.textContent = '📱 Locale (Offline)';
+});
 
 function esc(s){
   return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
@@ -75,51 +137,6 @@ function openEdit(id){
   scrollTo(0,$('editbox').offsetTop);
 }
 
-// Backup sempre con nome fisso 'ricette_backup.json'
-async function exportBackup(){
-  let dataStr=JSON.stringify({edits,custom,v:4},null,2);
-  if(navigator.canShare&&navigator.canShare({files:[new File([],BACKUP_FILE)]})){
-    try{
-      let b=new Blob([dataStr],{type:'application/json'}),
-          f=new File([b],BACKUP_FILE,{type:'application/json'});
-      await navigator.share({title:'Backup Ricette',files:[f]});
-      return;
-    }catch(e){
-      if(e.name!=='AbortError')console.warn(e);
-    }
-  }
-  let b=new Blob([dataStr],{type:'application/json'}),
-      u=URL.createObjectURL(b),
-      a=document.createElement('a');
-  a.href=u;
-  a.download=BACKUP_FILE;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(u);
-}
-
-function importBackup(file){
-  let r=new FileReader();
-  r.onload=e=>{
-    try{
-      let d=JSON.parse(e.target.result);
-      if(d&&typeof d==='object'){
-        edits=d.edits||{};
-        custom=d.custom||{};
-        save();
-        render();
-        alert('Backup ripristinato con successo!');
-      }else{
-        alert('File backup non valido');
-      }
-    }catch(ex){
-      alert('Errore lettura file: '+ex.message);
-    }
-  };
-  r.readAsText(file);
-}
-
 $('search').oninput=render;
 $('generate').onclick=generate;
 $('select').onclick=()=>document.querySelectorAll('.pick').forEach(x=>x.checked=true);
@@ -130,9 +147,6 @@ $('copy').onclick=()=>{
   $('copy').textContent='Copiata!';
   setTimeout(()=> $('copy').textContent='Copia lista',1300);
 };
-
-$('export').onclick=exportBackup;
-$('import').onchange=e=>{ if(e.target.files.length)importBackup(e.target.files[0]); };
 
 $('form').onsubmit=e=>{
   e.preventDefault();
@@ -156,5 +170,5 @@ $('new').onclick=()=>{
   $('editbox').open=true;
 };
 
-load();
+loadLocal();
 render();
