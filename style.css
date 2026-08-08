@@ -35,3 +35,12 @@ footer{text-align:center;margin:20px 0}
 small{color:#697386;font-size:12px}
 @media(max-width:500px){.recipe{align-items:flex-start}.mult{white-space:nowrap}.edit{padding:8px 6px}}
 .tools .tool-btn{cursor:pointer;display:inline-flex;align-items:center}
+
+.sync-badge {
+  font-size: 11px;
+  background: #e4f5eb;
+  color: #147a43;
+  padding: 5px 9px;
+  border-radius: 12px;
+  font-weight: 600;
+}
