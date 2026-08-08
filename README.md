@@ -1,0 +1,1 @@
+Carica tutti i file nella root del repository GitHub e fai commit. Pages: main / (root). Ogni ricetta ha Modifica: puoi cambiare nome, ingredienti, porzioni, quantità e unità. Nuove ricette da + Nuova ricetta. Le modifiche sono salvate nel browser del dispositivo.

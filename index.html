@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#123524">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <title>Le mie ricette</title>
+</head>
+<body>
+  <main>
+    <header>
+      <div>🛒</div>
+      <section>
+        <h1>Le mie ricette</h1>
+        <p>Seleziona, modifica e crea la lista</p>
+      </section>
+    </header>
+
+    <section class="card">
+      <input id="search" placeholder="Cerca ricetta o alimento">
+      <p class="tools">
+        <button id="select">Seleziona tutte</button>
+        <button id="none">Deseleziona</button>
+        <button id="new">＋ Nuova ricetta</button>
+        <button id="export">💾 Backup</button>
+        <label class="tool-btn">
+          <input type="file" id="import" accept=".json" style="display:none">
+          📂 Ripristina
+        </label>
+        <span id="total"></span>
+      </p>
+      <div id="recipes"></div>
+      <button class="primary" id="generate">Crea lista della spesa</button>
+    </section>
+
+    <section class="card">
+      <h2>Lista della spesa <small id="count"></small></h2>
+      <div id="result">
+        <p>Seleziona le ricette e premi Crea lista.</p>
+      </div>
+      <button class="primary" id="copy">Copia lista</button>
+    </section>
+
+    <details class="card" id="editbox">
+      <summary>Editor ricetta</summary>
+      <form id="form">
+        <input type="hidden" id="editId">
+        <label>Nome ricetta<input id="rname" required></label>
+        <div id="ings"></div>
+        <button type="button" id="addrow">＋ Ingrediente</button>
+        <button class="primary">Salva modifiche</button>
+      </form>
+    </details>
+
+    <footer>Le ricette aggiunte e modificate sono salvate su questo iPhone.</footer>
+  </main>
+
+  <script src="app.js"></script>
+  <script>navigator.serviceWorker?.register('./service-worker.js')</script>
+</body>
+</html>
