@@ -1,13 +1,4 @@
-npm install firebase
-
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// 1. Configurazione Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCM2FL1AnoT9uZ_SwSWOvSyZzYbvVeqif8",
   authDomain: "backup-lista-spesa.firebaseapp.com",
@@ -18,16 +9,12 @@ const firebaseConfig = {
   measurementId: "G-NKZRKYCFDK"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
 // Inizializza Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
-// Percorso segreto nel database (Sostituisci 'ricette_mia_chiave_123' con la tua parola segreta)
-const recipesRef = db.ref('spesona');
+// Percorso segreto (sostituisci 'ricette_mia_chiave_123' con la parola segreta che hai messo nelle Regole di Firebase)
+const recipesRef = db.ref('ricette_mia_chiave_123');
 
 // =========================================================
 // 2. LE TUE 30 RICETTE DI BASE
