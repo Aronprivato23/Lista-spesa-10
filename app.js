@@ -9,16 +9,19 @@ const firebaseConfig = {
   measurementId: "G-NKZRKYCFDK"
 };
 
-// Inizializza Firebase
-firebase.initializeApp(firebaseConfig);
+// Inizializzazione sicura
+try {
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+} catch (e) {
+  alert("Errore inizializzazione Firebase: " + e.message);
+}
+
 const db = firebase.database();
+const recipesRef = db.ref('ricette_condivise');
 
-// Percorso segreto (sostituisci 'ricette_mia_chiave_123' con la parola segreta che hai messo nelle Regole di Firebase)
-const recipesRef = db.ref('spesona');
-
-// =========================================================
-// 2. LE TUE 30 RICETTE DI BASE
-// =========================================================
+// 2. Ricette di base
 const BASE = {
   "1": [["Skyr", 300, "g"], ["Cereali", 80, "g"], ["Banana", 1, "pz"], ["Burro d'arachidi e toast integrale", 20, "g"], ["Latte", 250, "ml"]],
   "2": [["Uova", 3, "pz"], ["Gallette mais", 80, "g"], ["Avocado", 0.5, "pz"], ["Latte", 250, "ml"], ["Banana", 1, "pz"]],
@@ -56,7 +59,6 @@ const KEY = 'ricette-complete-v4';
 const $ = x => document.getElementById(x);
 let edits = {}, custom = {};
 
-// Caricamento locale offline
 function loadLocal(){
   try{
     let x = JSON.parse(localStorage.getItem(KEY) || '{}');
@@ -65,16 +67,18 @@ function loadLocal(){
   }catch(e){}
 }
 
-// Salvataggio sia su memoria locale che su Firebase
 function save(){
   localStorage.setItem(KEY, JSON.stringify({edits, custom}));
-  recipesRef.set({edits, custom}).catch(err => console.error("Errore salvataggio Cloud:", err));
+  recipesRef.set({edits, custom}).catch(err => alert("Errore invio dati Cloud: " + err.message));
 }
 
-// Sincronizzazione in Tempo Reale con Firebase
+loadLocal();
+
+// Ascolta modifiche in tempo reale da Firebase
 recipesRef.on('value', (snapshot) => {
   const val = snapshot.val();
   const statusEl = $('sync-status');
+  
   if (val) {
     edits = val.edits || {};
     custom = val.custom || {};
@@ -82,13 +86,14 @@ recipesRef.on('value', (snapshot) => {
     render();
     if(statusEl) statusEl.textContent = '☁️ Sincronizzato';
   } else {
-    // Se il database cloud è vuoto al primo avvio, salviamo le ricette di base nel cloud
+    // Se la cloud è vuota, carica i dati locali
     save();
+    if(statusEl) statusEl.textContent = '☁️ Inizializzato';
   }
 }, (error) => {
-  console.warn("Offline/Errore connessione Cloud:", error);
+  alert("Errore connessione Firebase: " + error.message);
   const statusEl = $('sync-status');
-  if(statusEl) statusEl.textContent = '📱 Locale (Offline)';
+  if(statusEl) statusEl.textContent = '📱 Errore Connessione';
 });
 
 function esc(s){
@@ -184,5 +189,4 @@ $('new').onclick = () => {
   $('editbox').open = true;
 };
 
-loadLocal();
 render();
