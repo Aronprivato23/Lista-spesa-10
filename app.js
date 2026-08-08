@@ -2,6 +2,7 @@
 const firebaseConfig = {
   apiKey: "AIzaSyCM2FL1AnoT9uZ_SwSWOvSyZzYbvVeqif8",
   authDomain: "backup-lista-spesa.firebaseapp.com",
+  databaseURL: "https://backup-lista-spesa-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "backup-lista-spesa",
   storageBucket: "backup-lista-spesa.firebasestorage.app",
   messagingSenderId: "438493716093",
