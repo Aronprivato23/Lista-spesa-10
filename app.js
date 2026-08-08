@@ -14,7 +14,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
 // Percorso segreto (sostituisci 'ricette_mia_chiave_123' con la parola segreta che hai messo nelle Regole di Firebase)
-const recipesRef = db.ref('ricette_mia_chiave_123');
+const recipesRef = db.ref('spesona');
 
 // =========================================================
 // 2. LE TUE 30 RICETTE DI BASE
