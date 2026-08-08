@@ -7,6 +7,9 @@
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
   <title>Le mie ricette</title>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 </head>
 <body>
   <main>
@@ -24,11 +27,7 @@
         <button id="select">Seleziona tutte</button>
         <button id="none">Deseleziona</button>
         <button id="new">＋ Nuova ricetta</button>
-        <button id="export">💾 Backup</button>
-        <label class="tool-btn">
-          <input type="file" id="import" accept=".json" style="display:none">
-          📂 Ripristina
-        </label>
+        <span id="sync-status" class="sync-badge">☁️ In linea</span>
         <span id="total"></span>
       </p>
       <div id="recipes"></div>
@@ -54,7 +53,7 @@
       </form>
     </details>
 
-    <footer>Le ricette aggiunte e modificate sono salvate su questo iPhone.</footer>
+    <footer>Sincronizzazione Cloud automatica attiva.</footer>
   </main>
 
   <script src="app.js"></script>
